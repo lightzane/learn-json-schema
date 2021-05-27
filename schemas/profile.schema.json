@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "profile.schema.json",
+    "required": ["name", "age"],
+    "properties": {
+        "name": {
+            "description": "Give details about your name.",
+            "$ref": "./name.schema.json"
+        },
+        "hobbies": {
+            "description": "Things you love to do on your free or \"me\" time.",
+            "$ref": "#/definitions/hobbiesdef"
+        },
+        "age": {
+            "description": "How old are you?",
+            "$ref": "#/definitions/agedef"
+        }
+    },
+    "definitions": {
+        "hobbiesdef": {
+            "$comment": "definitions are sub-schemas, and called in $ref, you can also create another schema file rather than having a definition",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "examples": [
+                    "swimming",
+                    "sleeping",
+                    "eating",
+                    "watching movies",
+                    "playing music instruments",
+                    "listening to music",
+                    "playing outdoor games",
+                    "playing video games",
+                    "games"
+                ]
+            },
+            "examples": [
+                ["swimming", "doing laundry"],
+                ["playing games", "while eating"]
+            ]
+        },
+        "agedef": {
+            "type": "integer",
+            "exclusiveMinimum": 0
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": {
+        "firstName": "Juan",
+        "lastName": "De La Cruz",
+        "suffix": "III"
+    },
+    "hobbies": [
+        "playing games",
+        "while eating",
+        "listening to music",
+        "listening to IU music"
+    ],
+    "age": 3
+}

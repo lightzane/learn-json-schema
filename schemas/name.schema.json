@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "name.schema.json",
+    "required": ["firstName", "lastName"],
+    "additionalProperties": false,
+    "properties": {
+        "firstName": {
+            "description": "Your first name goes here.",
+            "type": "string"
+        },
+        "lastName": {
+            "description": "Your surname goes here.",
+            "type": "string"
+        },
+        "nickname": {
+            "description": "Enter here what you want your close friends to call you.",
+            "type": "string"
+        },
+        "prefix": {
+            "description": "How you are addressed.",
+            "type": "string",
+            "enum": ["Mr.", "Ms.", "Dr.", "Sir", "Madam"]
+        },
+        "suffix": {
+            "description": "Your suffix (if any).",
+            "type": "string",
+            "examples": ["Jr", "Sr"]
+        }
+    }
+}
