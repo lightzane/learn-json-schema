@@ -153,3 +153,36 @@ So that the intellisense, validation will display every time you write your JSON
 ## References
 
 -   https://json-schema.org/learn/getting-started-step-by-step
+
+## Extra tools
+
+-   **Quicktype**: https://github.com/quicktype/quicktype
+
+    This tool can create a schema out from a plain JSON <br>
+    Also, it can create a `Typescript Interface` straight from the schema!
+
+```
+npm install -g quicktype
+```
+
+### Generating code from JSON schema
+
+The recommended way to use `quicktype` is to generate a JSON schema from sample data, review and edit the schema, commit the schema to your project repo, then generate code from the schema as part of your build process:
+
+```
+# First, infer a JSON schema from a sample.
+quicktype pokedex.json -l schema -o schema.json
+
+# Review the schema, make changes,
+# and commit it to your project repo.
+
+# Finally, generate model code from schema in your
+# build process for whatever languages you need:
+quicktype -s schema schema.json -o src/ios/models.swift
+quicktype -s schema schema.json -o src/android/Models.java
+quicktype -s schema schema.json -o src/nodejs/Models.ts
+
+# All of these models will serialize to and from the same
+# JSON, so different programs in your stack can communicate
+# seamlessly.
+```
